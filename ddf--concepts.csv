@@ -1,0 +1,5 @@
+concept,name,concept_type
+gdp_per_capita_by_purchasing_power_parities,GDP per capita by purchasing power parities,measure
+area,Area,entity_domain
+year,Year,time
+name,Name,string
