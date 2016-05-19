@@ -9,6 +9,10 @@ from ddf_utils.index import create_index_file
 source = '../source/gapdata001 v14.xlsx'
 out_dir = '../../'
 
+# the datapoint name and datapoint id
+dp_name_sheet = 'GDP per capita - with interpolations'
+dp_name = 'GDP per capita by purchasing power parities'
+dp_id = to_concept_id(dp_name)
 
 if __name__ == '__main__':
 
@@ -27,9 +31,7 @@ if __name__ == '__main__':
     ent.to_csv(path, index=False)
 
     # datapoint
-    data001_dp = data001[['Area', 'Year', 'GDP per capita - with interpolations']].copy()
-
-    dp_id = to_concept_id('GDP per capita by purchasing power parities')
+    data001_dp = data001[['Area', 'Year', dp_name_sheet]].copy()
 
     data001_dp.columns = ['area', 'year', dp_id]
 
@@ -41,7 +43,7 @@ if __name__ == '__main__':
     conc = [dp_id, 'area', 'year', 'name']
     cdf = pd.DataFrame([], columns=['concept', 'name', 'concept_type'])
     cdf['concept'] = conc
-    cdf['name'] = ['GDP per capita by purchasing power parities', 'Area', 'Year', 'Name']
+    cdf['name'] = [dp_name, 'Area', 'Year', 'Name']
     cdf['concept_type'] = ['measure', 'entity_domain', 'time', 'string']
 
     path = os.path.join(out_dir, 'ddf--concepts.csv')
