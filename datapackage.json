@@ -1,0 +1,62 @@
+{
+    "name": "ddf--gapminder--hist_gdppc",
+    "language": {
+        "id": "en"
+    },
+    "resources": [
+        {
+            "path": "ddf--concepts.csv",
+            "name": "ddf--concepts",
+            "schema": {
+                "primaryKey": "concept",
+                "fields": [
+                    {
+                        "name": "concept"
+                    },
+                    {
+                        "name": "name"
+                    },
+                    {
+                        "name": "concept_type"
+                    }
+                ]
+            }
+        },
+        {
+            "path": "ddf--datapoints--gdp_per_capita_by_purchasing_power_parities--by--area--year.csv",
+            "name": "ddf--datapoints--gdp_per_capita_by_purchasing_power_parities--by--area--year",
+            "schema": {
+                "primaryKey": [
+                    "area",
+                    "year"
+                ],
+                "fields": [
+                    {
+                        "name": "area"
+                    },
+                    {
+                        "name": "year"
+                    },
+                    {
+                        "name": "gdp_per_capita_by_purchasing_power_parities"
+                    }
+                ]
+            }
+        },
+        {
+            "path": "ddf--entities--area.csv",
+            "name": "ddf--entities--area",
+            "schema": {
+                "primaryKey": "area",
+                "fields": [
+                    {
+                        "name": "area"
+                    },
+                    {
+                        "name": "name"
+                    }
+                ]
+            }
+        }
+    ]
+}
